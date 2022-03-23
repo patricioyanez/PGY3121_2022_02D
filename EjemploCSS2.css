@@ -1,0 +1,24 @@
+#h1SegundoTitulo
+{
+    color: blue;
+    text-align: center;
+}
+.h2SubTitulo
+{
+    font-style: italic;
+    color: rgb(100, 50, 70);
+}
+.tipoDeLetra
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+h3{
+    text-align: center;
+}
+h1,h3{
+    font-style: italic;
+}
+*
+{
+    font-size: 50px;
+}
