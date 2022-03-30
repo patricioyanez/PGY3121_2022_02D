@@ -60,10 +60,20 @@
                 Rut
             </div>
             <div class="col-md-5">
-                <input name="txtRut" class="txtRut form-control">
+                <input name="txtRut" class="txtRut form-control" 
+                maxlength="8"
+                placeholder="Ej: 12345678"
+                title="Ingrese su número de rut"
+
+                >
             </div>
             <div class="col-md-1">
-                <input name="txtDv" class="txtDv form-control">
+                <input name="txtDv" class="txtDv form-control" 
+                maxlength="1"
+                placeholder="Ej:K"
+                title="Ingrese el dígito verificador"
+                value="1"
+                >
             </div>
         </div>
         <div class="row mt-3">
@@ -126,13 +136,16 @@
               </select>
           </div>
       </div>
-        <!--
-            Tarea: agregar apellido, direccion, fecha de nacimiento,
-            estado civil (radio) y Nivel Academico (tecnico, profesion...) select
-            
-
-
-        -->
+        <div class="row mt-3">
+            <div class="col-md-2 offset-md-2">
+                Opciones
+            </div>
+            <div class="col-md-6">
+                <input type="submit" name="btnLimpiar" class="btnLimpiar btn btn-secondary" value="Limpiar">
+                <button name="btnGrabar" class="btn btn-danger">Grabar</button>
+                <button name="btnGrabar" class="btn btn-success">Listar</button>
+            </div>
+        </div>
     </div>
 </body>
 </html>
