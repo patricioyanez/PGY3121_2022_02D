@@ -9,9 +9,58 @@
 <body>
     <form action="inputs.html" method="get">
         <h1>Etiquetas HTML</h1>
+        <label>Nombre</label>
+        <input type="text" name="txtNombre" autofocus>
+        <input type="text" name="txtApellido" maxlength="20" size="18">
+        <input type="text" name="txtSaludo1" disabled value="chao">
+        <input type="text" name="txtSaludo2" readonly="readonly" value="chao chao">
+        <input type="text" name="txtDireccion" placeholder="Ej: Av. Vespucio 1501" 
+                                                title="Ingrese su dirección">
+        <br>        
+        <label>Edad</label>
+        <input type="number" name="txtEdad" min="0" max="110">
+        <input type="hidden" name="txtCodigo" value="1234">
         
+        <h2>input para opciones</h2>
+        <h3>Estado civil</h3>
+        <input type="radio" name="rdoEstadoCivil" value="1">Soltero
+        <input type="radio" name="rdoEstadoCivil" value="2">Casado
+        <input type="radio" name="rdoEstadoCivil" value="3">Divorciado
+        <input type="radio" name="rdoEstadoCivil" value="4">Viudo
+        <input type="radio" name="rdoEstadoCivil" value="5">AUC
 
+        <h3>Animé favorito</h3>
+        <input type="checkbox" name="chkAnime" value="1">Evangelion
+        <input type="checkbox" name="chkAnime" value="2">Shingeki no kyojin
+        <input type="checkbox" name="chkAnime" value="3">Ghost in the shell
+        <input type="checkbox" name="chkAnime" value="4">Ninja scroll
+        <input type="checkbox" name="chkAnime" value="5">Akira
 
+        <h3>Estilo de música</h3>
+        <select name="cmbEstiloMusica" size="5" multiple>
+            <option value="0">Seleccionar</option>
+            <option value="1">Cueca</option>
+            <option value="2">Cumbia</option>
+            <option value="3">Metal</option>
+            <option value="4">Rap</option>
+        </select>
+
+        <h1>Fechas y hora</h1>
+        <input type="date" name="txtFecha">
+        <input type="time" name="txtHoraEntrada">
+        <input type="month" name="txtMesActual">
+        <input type="week" name="txtSemanaActual">
+        <h1>Controles adicionales</h1>
+        <input type="search" name="txtBuscar" placeholder="Ingrese patrón">
+        <input type="range" name="txtValor" min="0" max="100">
+        <input type="color" name="txtColor">
+        <br>
+        <textarea cols="50" rows="10">
+
+        </textarea>
+        <br>
+        <br>
+        <input type="submit" name="Enviar" value="Enviar">
     </form>    
 </body>
 </html>
