@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function() // $(document).ready(function(){})
+        {
+            //alert("Hola mundo!!!")
+            /*let nombre = "juan";
+            alert(nombre);
+            */
+            $(".btnEnviar").click(function()
+            {
+               // alert("Hola");
+               let nombre = $(".txtNombre").val(); // obtener valor
+               alert(nombre);
+               $(".txtNombre").val("Hola " + nombre); // asignar valor
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <input type="text" name="txtNombre" class="txtNombre">
+    <button class="btnEnviar">Enviar</button>
+</body>
+</html>
