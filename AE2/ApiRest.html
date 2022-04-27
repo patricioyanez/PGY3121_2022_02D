@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumo de ApiRest</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function()
+        {
+            // AQUI SE AGERGA EL CODIGO DE JQUERy!!!!!!!!!!! por favor!!!!
+            $('.btnAceptar').click(function()
+            {
+                $.get('https://www.themealdb.com/api/json/v1/1/categories.php',
+                function(data)
+                {
+                    $.each(data.categories, function(i, item)
+                    {
+                        $('.tblComida').append('<tr><td>' + item.idCategory + '</td>' +
+                                                    '<td><img src="' + item.strCategoryThumb + '"</td>' +
+                                                    '<td>' + item.strCategory + '</td>' +
+                                                    '<td>' + item.strCategoryDescription + '</td></tr>'
+                                                );
+                    })
+                })
+            })
+        })
+    </script>
+
+<!-- Investigar como obtener Uf, dolar, utm de chile del dia actual 
+https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo/related
+-->
+</head>
+<body>
+    <button class="btnAceptar">Aceptar</button>
+    <table class="tblComida">
+        <tr>
+            <th>
+                id
+            </th>
+            <th>
+                imagen
+            </th>
+            <th>
+                Categoría
+            </th>
+            <th>
+                Comentario
+            </th>
+        </tr>
+    </table>
+</body>
+</html>
