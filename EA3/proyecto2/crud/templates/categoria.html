@@ -1,0 +1,33 @@
+{# Esto es un comentario #}
+{% extends "plantillaBase.html" %}
+
+{# definir contenidos que tendrán cada uno de los bloques #}
+{% block tituloPestana %} 
+    CRUD Categoria
+{% endblock %}
+{% block tituloPagina %} 
+    <div class="text-center mt-5">
+        <h1>Registro de Categoria</h1>
+    </div>
+{% endblock %}
+{% block contenido %} 
+<br>
+<div class="row">
+    <div class="col-md-2 offset-md-2">Nombre</div>
+    <div class="col-md-5"><input type="text" name="txtNombre" class="form-control"></div>
+</div>
+<div class="row">
+    <div class="col-md-2 offset-md-2">Activo</div>
+    <div class="col-md-5"><input type="checkbox" name="chkActivo" value="1"></div>
+</div>
+<div class="row">
+    <div class="col-md-2 offset-md-2 mt-3">Opciones</div>
+    <div class="col-md-5">
+        <button class="btn btn-danger">Grabar</button>
+        <button class="btn btn-success">Listar</button>
+        <button class="btn btn-outline-secondary">Limpiar</button>
+    </div>
+</div>
+{% endblock %}
+{% block listado %} 
+{% endblock %}
