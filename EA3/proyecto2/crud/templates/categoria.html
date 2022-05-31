@@ -13,26 +13,48 @@
 {% block contenido %} 
 <br>
 <form method="POST" action="{% url 'categoria' %}">
+    {% csrf_token %} 
 <div class="row">
     <div class="col-md-2 offset-md-2">Nombre</div>
     <div class="col-md-5">
-        <input type="hidden"    name="txtId">
-        <input type="text"      name="txtNombre" class="form-control">
+        <input type="hidden"    name="txtId" value="{{ fila.id }}">
+        <input type="text"      name="txtNombre" class="form-control" value="{{ fila.nombre }}">
     </div>
 </div>
 <div class="row">
     <div class="col-md-2 offset-md-2">Activo</div>
-    <div class="col-md-5"><input type="checkbox" name="chkActivo" value="1"></div>
+    <div class="col-md-5"><input type="checkbox" name="chkActivo" value="1" {% if fila.activo %}{{'checked' }}{% endif %}></div>
 </div>
 <div class="row">
     <div class="col-md-2 offset-md-2 mt-3">Opciones</div>
     <div class="col-md-5">
         <input type="submit" name="btnGrabar" class="btn btn-danger btnGrabar" value="Grabar">
-        <input type="submit" name="btnListar" class="btn btn-danger btnListar" value="Listar">
-        <input type="submit" name="btnLimpiar" class="btn btn-danger btnLimpiar" value="Limpiar">
+        <input type="submit" name="btnListar" class="btn btn-success btnListar" value="Listar">
+        <input type="submit" name="btnLimpiar" class="btn btn-outline-secondary btnLimpiar" value="Limpiar">
     </div>
 </div>
 </form>
 {% endblock %}
 {% block listado %} 
+<div class="row mt-5">
+    <div class="col-12">
+        <table class="table">
+            <tr>
+                <th>id</th>
+                <th>Nombre</th>
+                <th>Activo</th>
+                <th>Seleccionar</th>
+            </tr>
+{% for fila in listado %}
+            <tr>
+                <td>{{ fila.id }}</td>
+                <td>{{ fila.nombre }}</td>
+                <td>{{ fila.activo }}</td>
+                <td><a href="{% url 'categoria' %}/{{ fila.id }}/">Seleccionar</a></td>
+            </tr>
+{% endfor %}
+        </table>
+    </div>
+</div>
+
 {% endblock %}
