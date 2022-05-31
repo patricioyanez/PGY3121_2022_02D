@@ -12,9 +12,13 @@
 {% endblock %}
 {% block contenido %} 
 <br>
+<form method="POST" action="{% url 'categoria' %}">
 <div class="row">
     <div class="col-md-2 offset-md-2">Nombre</div>
-    <div class="col-md-5"><input type="text" name="txtNombre" class="form-control"></div>
+    <div class="col-md-5">
+        <input type="hidden"    name="txtId">
+        <input type="text"      name="txtNombre" class="form-control">
+    </div>
 </div>
 <div class="row">
     <div class="col-md-2 offset-md-2">Activo</div>
@@ -23,11 +27,12 @@
 <div class="row">
     <div class="col-md-2 offset-md-2 mt-3">Opciones</div>
     <div class="col-md-5">
-        <button class="btn btn-danger">Grabar</button>
-        <button class="btn btn-success">Listar</button>
-        <button class="btn btn-outline-secondary">Limpiar</button>
+        <input type="submit" name="btnGrabar" class="btn btn-danger btnGrabar" value="Grabar">
+        <input type="submit" name="btnListar" class="btn btn-danger btnListar" value="Listar">
+        <input type="submit" name="btnLimpiar" class="btn btn-danger btnLimpiar" value="Limpiar">
     </div>
 </div>
+</form>
 {% endblock %}
 {% block listado %} 
 {% endblock %}
