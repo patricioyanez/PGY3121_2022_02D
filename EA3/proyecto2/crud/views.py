@@ -9,9 +9,11 @@ def marcaView(request):
 
 def categoriaLeerView(request, id):
     contexto = {}
-    if not id is None:
+    try:
         fila = Categoria.objects.get(pk = id)
         contexto = {'fila': fila}
+    except:
+        contexto = {'error': 'Item no encontrado'}
 
     return render(request, 'categoria.html', contexto)
 
@@ -31,16 +33,25 @@ def categoriaView(request):
             if id < 1: # ORM Object relational Mapping
                 Categoria.objects.create(nombre = nombre, activo = activo) 
             else:
-                item = Categoria.objects.get(pk = id)
-                item.nombre = nombre
-                item.activo = activo
-                item.save()     
+                fila = Categoria.objects.get(pk = id)
+                fila.nombre = nombre
+                fila.activo = activo
+                fila.save()     
             contexto = {'mensaje': 'Los datos fueron guardados'}
 
         
         elif 'btnListar' in request.POST:
             listado = Categoria.objects.all()
             contexto = {'listado': listado }
+        elif 'btnEliminar' in request.POST:
+            try:
+                fila = Categoria.objects.get(pk = id)
+                fila.delete()
+                contexto = {'mensaje': 'Los datos fueron eliminados'}
+            except:
+                contexto = {'error': 'Debe seleccionar item a eliminar'}
+
+                
 
 
     return render(request, 'categoria.html', contexto)
