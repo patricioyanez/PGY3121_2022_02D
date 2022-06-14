@@ -10,7 +10,7 @@ class Marca(models.Model):
         return self.nombre
 
 class Categoria(models.Model):
-    nombre = models.TextField(max_length=100)
+    nombre = models.TextField(max_length=100, )
     activo = models.BooleanField()
 
     def __str__(self):

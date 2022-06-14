@@ -4,4 +4,4 @@ from crud.models import Categoria
 class CategoriaSerializer(serializers.ModelSerializer):
     class Meta:
         model   = Categoria
-        fields  = ['nombre', 'activo']
+        fields  = ['id','nombre', 'activo']

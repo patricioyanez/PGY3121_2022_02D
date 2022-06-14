@@ -27,3 +27,28 @@ def apiCategoria(request):
         return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 
     
+@csrf_exempt
+@api_view(['GET', 'PUT', 'DELETE'])
+def apiCategoriaDetalle(request, buscarId):
+
+    try:
+        id = int(buscarId)
+        categoria = Categoria.objects.get(pk=id)
+    except:
+        return Response(status = status.HTTP_400_BAD_REQUEST)
+
+    if request.method == 'GET':
+        serializer = CategoriaSerializer(categoria)
+        return Response(serializer.data)
+
+    if request.method == 'PUT':
+        data = JSONParser().parse(request)
+        serializer = CategoriaSerializer(categoria, data= data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status = status.HTTP_202_ACCEPTED)
+        return Response(serializer.data, status = status.HTTP_400_BAD_REQUEST)
+
+    if request.method == 'DELETE':
+        categoria.delete()
+        return Response(status = status.HTTP_200_OK)        
